@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IpS-62-4v4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Places-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CityListViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HH9-8x-P7S">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="f4f-eY-sIi">
+                                    <size key="itemSize" width="375" height="80"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CityListCell" id="Mhu-pG-GkN" customClass="CityListCell" customModule="Weather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Q9d-gf-qo1" customClass="CityListCell" customModule="Weather" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="128"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HH9-8x-P7S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="Q74-hY-rvg"/>
+                            <constraint firstItem="HH9-8x-P7S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lN4-eY-nC9"/>
+                            <constraint firstItem="HH9-8x-P7S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mrW-d5-7UA"/>
+                            <constraint firstItem="HH9-8x-P7S" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uSj-Mn-tFV"/>
+                            <constraint firstAttribute="bottom" secondItem="HH9-8x-P7S" secondAttribute="bottom" id="ug5-5R-jiU"/>
+                            <constraint firstAttribute="bottom" secondItem="HH9-8x-P7S" secondAttribute="bottom" id="xSB-0S-DtZ"/>
+                            <constraint firstItem="HH9-8x-P7S" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yzm-XK-ULl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Places" id="coc-l7-Qjj"/>
+                    <connections>
+                        <outlet property="citiesCollectionView" destination="HH9-8x-P7S" id="LS3-P9-gir"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888" y="-1456"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="25c-6h-qUA">
+            <objects>
+                <viewController id="WAX-jb-Q1E" customClass="HelpViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I6x-DY-Px7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcG-Mp-MTn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="812"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LmJ-Fl-P37"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AcG-Mp-MTn" firstAttribute="leading" secondItem="LmJ-Fl-P37" secondAttribute="leading" id="CZe-S8-AmS"/>
+                            <constraint firstItem="AcG-Mp-MTn" firstAttribute="top" secondItem="LmJ-Fl-P37" secondAttribute="top" id="KEr-23-nO9"/>
+                            <constraint firstAttribute="bottom" secondItem="AcG-Mp-MTn" secondAttribute="bottom" constant="40" id="X4t-0b-e6q"/>
+                            <constraint firstItem="AcG-Mp-MTn" firstAttribute="trailing" secondItem="LmJ-Fl-P37" secondAttribute="trailing" id="gwH-el-AX4"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Help" image="questionmark.circle" catalog="system" id="ax8-Rs-8i3"/>
+                    <connections>
+                        <outlet property="webView" destination="AcG-Mp-MTn" id="VM9-fO-8SA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VSa-04-iz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118.84057971014494" y="-441.29464285714283"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Lai-8O-ove">
+            <objects>
+                <tabBarController id="IpS-62-4v4" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BnG-zt-ByM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="CAD-Au-EPz" kind="relationship" relationship="viewControllers" id="ogs-WA-eTl"/>
+                        <segue destination="eKw-JX-fnp" kind="relationship" relationship="viewControllers" id="CiX-pF-IWH"/>
+                        <segue destination="WAX-jb-Q1E" kind="relationship" relationship="viewControllers" id="weH-1v-ff8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0NZ-m4-23x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-643" y="-802"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="NWy-kp-cWO">
+            <objects>
+                <viewController id="eKw-JX-fnp" customClass="MapViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Aw-Km-5aU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="G2O-iN-ET2">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dHa-fQ-XJ4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G2O-iN-ET2" firstAttribute="top" secondItem="6Aw-Km-5aU" secondAttribute="top" id="GYc-Xh-2mY"/>
+                            <constraint firstItem="G2O-iN-ET2" firstAttribute="trailing" secondItem="dHa-fQ-XJ4" secondAttribute="trailing" id="a8T-06-wIa"/>
+                            <constraint firstItem="G2O-iN-ET2" firstAttribute="leading" secondItem="dHa-fQ-XJ4" secondAttribute="leading" id="rtS-RS-yZH"/>
+                            <constraint firstItem="G2O-iN-ET2" firstAttribute="bottom" secondItem="dHa-fQ-XJ4" secondAttribute="bottom" id="wof-hM-GTv"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="7Ps-y7-zmG"/>
+                    <connections>
+                        <outlet property="mapView" destination="G2O-iN-ET2" id="ecc-8L-KYb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQA-ou-ZWY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886.95652173913049" y="-802.23214285714278"/>
+        </scene>
+        <!--My Places-->
+        <scene sceneID="s3U-Lf-TGd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CAD-Au-EPz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Places" image="list.dash" catalog="system" id="ZxY-ZX-IG2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cfO-UE-Bzn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ne1-oh-njg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zvT-if-O5w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="-1097"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="map" catalog="system" width="128" height="110"/>
+        <image name="questionmark.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
