@@ -19,7 +19,6 @@ class CityListViewController: UIViewController {
         configureCollectionView()
         getWeather()
         getForecast()
-//        getHourlyForecast()
     }
     
     private func configureCollectionView() {
@@ -47,16 +46,18 @@ extension CityListViewController: UICollectionViewDelegate {
 
 extension CityListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if (cityListViewModel.cities.count == 0) {
-//            citiesCollectionView?.setEmptyMessage(AlertMessages.noPlacesToShow)
-//        } else {
-//            citiesCollectionView?.restore()
-//        }
-        return 10
+        if (cityListViewModel.cities.count == 0) {
+            citiesCollectionView?.setEmptyMessage(AlertMessages.noPlacesToShow)
+        } else {
+            citiesCollectionView?.restore()
+        }
+        return cityListViewModel.cities.count
+//        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cityListCellIdentifier, for: indexPath) as? CityListCell {
+            cell.city = cityListViewModel.cities[indexPath.item]
             cell.cityNameLabel?.text = "Pune"
             cell.curentTemperatureLabel?.text = "31°"
             return cell

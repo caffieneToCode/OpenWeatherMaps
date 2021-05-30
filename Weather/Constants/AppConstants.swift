@@ -10,6 +10,6 @@ import Foundation
 enum AlertMessages {
     static let noPlacesToShow = """
                                 No places to show yet.\n
-                                Please add places from map to show here.
+                                Long press on any place on the map to add it to the list.
                                 """
 }

@@ -16,10 +16,6 @@ class HelpViewController: UIViewController {
         loadHelpPage()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        loadHelpPage()
-    }
-    
     private func loadHelpPage() {
         if let request = HelpPageService.makeRequest(for: .helpPage) {
             webView?.load(request)
