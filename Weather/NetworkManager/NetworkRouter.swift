@@ -8,7 +8,7 @@
 import Foundation
 
 enum NetworkRouter {
-    case weather(city: String?, lat: String?, lon: String?)
+    case weather(city: String?, coordinates: Coord?)
     case forecast(city: String)
     case hourlyForecast(city: String)
     case helpPage
@@ -77,13 +77,13 @@ enum NetworkRouter {
         var parameters = [URLQueryItem]()
         
         switch self {
-        case .weather(let city, let lat, let lon):
+        case .weather(let city, let coordinates):
             if let city = city {
                 parameters.append(URLQueryItem(name: ParameterName.city, value: city))
             }
-            if let lat = lat, let lon = lon {
-                parameters.append(URLQueryItem(name: ParameterName.lat, value: lat))
-                parameters.append(URLQueryItem(name: ParameterName.lon, value: lon))
+            if let lat = coordinates?.lat, let lon = coordinates?.lon {
+                parameters.append(URLQueryItem(name: ParameterName.lat, value: String(lat)))
+                parameters.append(URLQueryItem(name: ParameterName.lon, value: String(lon)))
             }
         case .forecast(let city), .hourlyForecast(let city):
             parameters.append(URLQueryItem(name: ParameterName.city, value: city))

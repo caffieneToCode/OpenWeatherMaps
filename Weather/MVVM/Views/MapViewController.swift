@@ -8,15 +8,22 @@
 import UIKit
 import MapKit
 
+protocol PlacePickerDelegate: class {
+    func didAddPlaceToList(coord: Coord)
+}
+
 class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var mapView: MKMapView?
+    
+    weak var delegate: PlacePickerDelegate?
+    var isPresenting = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setMapview()
     }
     
-    func setMapview() {
+    private func setMapview() {
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self,action: #selector(handleLongPress(gestureReconizer:)))
         longPressGestureRecognizer.minimumPressDuration = 0.3
         longPressGestureRecognizer.delaysTouchesBegan = true
@@ -25,15 +32,45 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc
-    func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+    private func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
         if gestureReconizer.state != UIGestureRecognizer.State.ended {
             let touchLocation = gestureReconizer.location(in: mapView)
             let locationCoordinate = mapView?.convert(touchLocation,toCoordinateFrom: mapView)
-            print("Tapped at lat: \(locationCoordinate?.latitude ?? 0.0) long: \(locationCoordinate?.longitude ?? 0.0)")
+            if let lat = locationCoordinate?.latitude, let lon = locationCoordinate?.longitude {
+                print("Tapped at lat: \(lat) lon: \(lon)")
+                let coord = Coord(lon: lon, lat: lat)
+                shouldAddPlaceToList(coord: coord)
+            }
             return
         }
         if gestureReconizer.state != UIGestureRecognizer.State.began {
             return
         }
+    }
+    
+    private func shouldAddPlaceToList(coord: Coord) {
+        let alertController = UIAlertController(title: "Add place to list?",
+                                                message: "This place will be visible on the home screen once you add it to the list",
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Add", style: .cancel) { [weak self] (action) in
+            alertController.dismiss(animated: true, completion: nil)
+            self?.isPresenting = false
+            self?.addPlaceToList(coord: coord)
+            self?.navigationController?.popViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { [weak self]  (action) in
+            alertController.dismiss(animated: true, completion: nil)
+            self?.isPresenting = false
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        if !isPresenting {
+            isPresenting = true
+            present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    private func addPlaceToList(coord: Coord) {
+        delegate?.didAddPlaceToList(coord: coord)
     }
 }
