@@ -145,24 +145,6 @@
 			path = ForecastListCell;
 			sourceTree = "<group>";
 		};
-		756CB1622667677C00E12A8B /* CityListViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				756CB1322663E5AA00E12A8B /* CityListViewModel.swift */,
-				75C1797226634E4500D2B2A9 /* CityListViewController.swift */,
-			);
-			path = CityListViewModel;
-			sourceTree = "<group>";
-		};
-		756CB1662667678600E12A8B /* CityForecastViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				756CB1492665E8DF00E12A8B /* CityForecastViewModel.swift */,
-				758E6E9F2663D2490093D589 /* CityForecastViewController.swift */,
-			);
-			path = CityForecastViewModel;
-			sourceTree = "<group>";
-		};
 		756CB17D2667B03500E12A8B /* ActivityIndicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +239,8 @@
 			children = (
 				75C179A726634E9500D2B2A9 /* Models */,
 				75C179A826634E9D00D2B2A9 /* Views */,
+				75C1797226634E4500D2B2A9 /* CityListViewController.swift */,
+				758E6E9F2663D2490093D589 /* CityForecastViewController.swift */,
 				75C179A926634EA300D2B2A9 /* ViewModels */,
 			);
 			path = MVVM;
@@ -284,8 +268,8 @@
 		75C179A926634EA300D2B2A9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				756CB1622667677C00E12A8B /* CityListViewModel */,
-				756CB1662667678600E12A8B /* CityForecastViewModel */,
+				756CB1322663E5AA00E12A8B /* CityListViewModel.swift */,
+				756CB1492665E8DF00E12A8B /* CityForecastViewModel.swift */,
 				758E6E902663C5190093D589 /* MapViewController.swift */,
 				758E6E952663C53B0093D589 /* HelpViewController.swift */,
 				756CB18A2667B93400E12A8B /* CityListCellViewModel.swift */,
