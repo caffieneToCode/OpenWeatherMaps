@@ -23,6 +23,6 @@ enum ButtonTitles {
 enum InforMessages {
     static let noPlacesToShow = """
                                 No places to show yet.\n
-                                Long press on the map to add to add a place in the list.
+                                Long press on the map to add a place in the list.
                                 """
 }

@@ -37,8 +37,8 @@ class CityListViewModel {
     func updateData(weatherResponse: WeatherResponseModel?) {
         if let weatherResponse = weatherResponse, let name = weatherResponse.name {
             weatherModels.append(weatherResponse)
-            updateView?()
             savePlace(with: name)
+            updateView?()
         }
     }
     
