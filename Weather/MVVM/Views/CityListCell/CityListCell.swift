@@ -11,17 +11,14 @@ class CityListCell: UICollectionViewCell {
     @IBOutlet weak var cityNameLabel: UILabel?
     @IBOutlet weak var curentTemperatureLabel: UILabel?
     
-    var weatherModel: WeatherResponseModel?  {
+    var cityListCellViewModel: CityListCellViewModel?  {
         didSet {
             configureCell()
         }
     }
     
     private func configureCell() {
-        cityNameLabel?.text = weatherModel?.name ?? ""
-        if let temperature = weatherModel?.main?.temp {
-            let temperatureString = String(format: "%0.0f", temperature)
-            curentTemperatureLabel?.text = "\(temperatureString)°"
-        }
+        cityNameLabel?.text = cityListCellViewModel?.cityNameLabelTitle
+        curentTemperatureLabel?.text = cityListCellViewModel?.curentTemperatureLabelTitle
     }
 }

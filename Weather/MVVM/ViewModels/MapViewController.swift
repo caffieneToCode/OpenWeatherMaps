@@ -49,16 +49,16 @@ class MapViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func shouldAddPlaceToList(coord: Coord) {
-        let alertController = UIAlertController(title: "Add place to list?",
-                                                message: "This place will be visible on the home screen once you add it to the list",
+        let alertController = UIAlertController(title: AlertTitles.addPlaceToListTitle,
+                                                message: AlertMessages.addPlaceToListMessage,
                                                 preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Add", style: .cancel) { [weak self] (action) in
+        let okAction = UIAlertAction(title: ButtonTitles.add, style: .cancel) { [weak self] (action) in
             alertController.dismiss(animated: true, completion: nil)
             self?.isPresenting = false
             self?.addPlaceToList(coord: coord)
             self?.navigationController?.popViewController(animated: true)
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { [weak self]  (action) in
+        let cancelAction = UIAlertAction(title: ButtonTitles.cancel, style: .destructive) { [weak self] (action) in
             alertController.dismiss(animated: true, completion: nil)
             self?.isPresenting = false
         }

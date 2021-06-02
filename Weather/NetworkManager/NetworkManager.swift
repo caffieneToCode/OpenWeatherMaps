@@ -12,6 +12,7 @@ class NetworkManager {
         guard let urlRequest = makeURLRequest(from: router) else { return }
         let session = URLSession(configuration: .default)
         let dataTask = session.dataTask(with: urlRequest) { data, response, error in
+            ActivityIndicator.stop()
             if let err = error {
                 completion(.failure(err))
                 print(err.localizedDescription)

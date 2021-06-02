@@ -1,9 +1,7 @@
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
 //
-//  ForecastResponseModel.swift
-//  Weather
-//
-//  Created by Ashish Verma on 30/05/21.
-//
+//   let forecastResponseModel = try? newJSONDecoder().decode(ForecastResponseModel.self, from: jsonData)
 
 import Foundation
 
@@ -34,8 +32,13 @@ struct List: Codable {
     let visibility: Int?
     let pop: Double?
     let rain: Rain?
-    let sys: Sys?
+    let sys: Sys1?
     let dtTxt: String?
+
+    enum CodingKeys: String, CodingKey {
+        case dt, main, weather, clouds, wind, visibility, pop, rain, sys
+        case dtTxt = "dt_txt"
+    }
 }
 
 // MARK: - MainClass
@@ -43,11 +46,32 @@ struct MainClass: Codable {
     let temp, feelsLike, tempMin, tempMax: Double?
     let pressure, seaLevel, grndLevel, humidity: Int?
     let tempKf: Double?
+
+    enum CodingKeys: String, CodingKey {
+        case temp
+        case feelsLike = "feels_like"
+        case tempMin = "temp_min"
+        case tempMax = "temp_max"
+        case pressure
+        case seaLevel = "sea_level"
+        case grndLevel = "grnd_level"
+        case humidity
+        case tempKf = "temp_kf"
+    }
 }
 
 // MARK: - Rain
 struct Rain: Codable {
     let the3H: Double?
+
+    enum CodingKeys: String, CodingKey {
+        case the3H = "3h"
+    }
+}
+
+// MARK: - Sys
+struct Sys1: Codable {
+    let pod: Pod?
 }
 
 enum Pod: String, Codable {
@@ -55,24 +79,8 @@ enum Pod: String, Codable {
     case n = "n"
 }
 
-enum Icon: String, Codable {
-    case the03D = "03d"
-    case the03N = "03n"
-    case the04D = "04d"
-    case the04N = "04n"
-    case the10D = "10d"
-    case the10N = "10n"
-}
-
 enum MainEnum: String, Codable {
+    case clear = "Clear"
     case clouds = "Clouds"
     case rain = "Rain"
-}
-
-enum Description: String, Codable {
-    case brokenClouds = "broken clouds"
-    case lightRain = "light rain"
-    case moderateRain = "moderate rain"
-    case overcastClouds = "overcast clouds"
-    case scatteredClouds = "scattered clouds"
 }

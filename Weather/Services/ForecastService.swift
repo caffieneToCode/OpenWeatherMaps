@@ -8,11 +8,12 @@
 import Foundation
 
 class ForecastService {
-    static func getForecast(for city: String) {
+    static func getForecast(for city: String, completion: @escaping (_ response: ForecastResponseModel) -> Void) {
         NetworkManager.request(router: .forecast(city: city)) { (result: Result<ForecastResponseModel, Error>) in
             switch result {
-            case .success:
+            case .success(let response):
                 print("Success: getForecast()")
+                completion(response)
             case .failure:
                 print("Failure: getForecast()")
             }
